@@ -26,9 +26,9 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
 
-  pgadmin:
+  pgadmin4:
     image: dpage/pgadmin4
-    container_name: pgadmin
+    container_name: pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: root
