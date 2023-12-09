@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  main-service:
+    build: ./main-service
+    container_name: main-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - task-db
+    restart: on-failure
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://task-db:5432/task-manager
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+
+  task-db:
+    image: postgres:13.7-alpine
+    container_name: task-db
+    ports:
+      - "6541:5432"
+    restart: on-failure
+    volumes:
+      - /var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=task-manager
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
