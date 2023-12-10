@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
@@ -31,5 +31,5 @@ public class Comment {
     private Task task;
 
     @Column(name = "created")
-    private LocalDate created;
+    private LocalDateTime created;
 }

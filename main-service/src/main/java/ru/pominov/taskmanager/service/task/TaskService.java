@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import ru.pominov.taskmanager.dto.task.NewTaskDto;
 import ru.pominov.taskmanager.dto.task.TaskDto;
 import ru.pominov.taskmanager.dto.task.UpdateTaskDto;
+import ru.pominov.taskmanager.model.Task;
 import ru.pominov.taskmanager.model.enums.TaskStatus;
 
 public interface TaskService {
@@ -23,4 +24,6 @@ public interface TaskService {
     TaskDto getPerformerTaskById(Long taskId, Long performerId);
 
     TaskDto changeTaskStatusByPerformer(Long taskId, TaskStatus status, Long performerId);
+
+    Task getExistingTask(Long taskId);
 }

@@ -10,6 +10,7 @@ import ru.pominov.taskmanager.dto.task.NewTaskDto;
 import ru.pominov.taskmanager.dto.task.TaskDto;
 import ru.pominov.taskmanager.dto.task.UpdateTaskDto;
 import ru.pominov.taskmanager.exceptions.ConflictException;
+import ru.pominov.taskmanager.exceptions.DataNotFoundException;
 import ru.pominov.taskmanager.mapper.TaskMapper;
 import ru.pominov.taskmanager.model.Task;
 import ru.pominov.taskmanager.model.User;
@@ -123,5 +124,12 @@ public class TaskServiceImpl extends PageRequestUtil implements TaskService {
         Task updatedTask = taskRepository.save(existedTask);
         log.info("Performer with ID: {} updated status for task with ID: {} ", performerId, taskId);
         return taskMapper.toTaskDto(updatedTask);
+    }
+
+    @Override
+    public Task getExistingTask(Long taskId) {
+        return taskRepository.findById(taskId).orElseThrow(() -> {
+            throw new DataNotFoundException(String.format("Task with id=%d was not found", taskId));
+        });
     }
 }

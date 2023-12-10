@@ -34,6 +34,4 @@ public class TaskDto {
 
     @Schema(description = "Исполнитель задачи")
     private UserDto performer;
-
-//    private List<CommentDto> commentDtoList;
 }
