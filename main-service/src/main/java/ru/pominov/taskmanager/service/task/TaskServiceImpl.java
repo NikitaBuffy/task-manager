@@ -1,4 +1,4 @@
-package ru.pominov.taskmanager.service;
+package ru.pominov.taskmanager.service.task;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,9 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.pominov.taskmanager.abstraction.PageRequestUtil;
-import ru.pominov.taskmanager.dto.NewTaskDto;
-import ru.pominov.taskmanager.dto.TaskDto;
-import ru.pominov.taskmanager.dto.UpdateTaskDto;
+import ru.pominov.taskmanager.dto.task.NewTaskDto;
+import ru.pominov.taskmanager.dto.task.TaskDto;
+import ru.pominov.taskmanager.dto.task.UpdateTaskDto;
 import ru.pominov.taskmanager.exceptions.ConflictException;
 import ru.pominov.taskmanager.mapper.TaskMapper;
 import ru.pominov.taskmanager.model.Task;
@@ -17,6 +17,7 @@ import ru.pominov.taskmanager.model.enums.TaskPriority;
 import ru.pominov.taskmanager.model.enums.TaskSort;
 import ru.pominov.taskmanager.model.enums.TaskStatus;
 import ru.pominov.taskmanager.repository.TaskRepository;
+import ru.pominov.taskmanager.service.user.UserService;
 
 @Service
 @Slf4j
@@ -84,11 +85,29 @@ public class TaskServiceImpl extends PageRequestUtil implements TaskService {
     }
 
     @Override
+    public Page<TaskDto> getPerformerTasks(Long performerId, String sort, Integer from, Integer size) {
+        Pageable page = createPageRequest(from, size, TaskSort.valueOf(sort));
+        Page<Task> tasks = taskRepository.findAllByPerformerId(performerId, page);
+
+        return tasks.map(taskMapper::toTaskDto);
+    }
+
+    @Override
     public TaskDto getAuthorTaskById(Long taskId, Long userId) {
         Task existedTask = taskRepository.findTaskByIdAndAuthorId(taskId, userId);
         if (existedTask == null) {
             log.error("User with ID: {} doesn't have task with ID: {}", userId, taskId);
             throw new ConflictException("User with ID: " + userId + " doesn't have task with ID: " + taskId);
+        }
+        return taskMapper.toTaskDto(existedTask);
+    }
+
+    @Override
+    public TaskDto getPerformerTaskById(Long taskId, Long performerId) {
+        Task existedTask = taskRepository.findTaskByIdAndPerformerId(taskId, performerId);
+        if (existedTask == null) {
+            log.error("Performer with ID: {} doesn't execute in task with ID: {}", performerId, taskId);
+            throw new ConflictException("Performer with ID: " + performerId + " doesn't execute in task with ID: " + taskId);
         }
         return taskMapper.toTaskDto(existedTask);
     }

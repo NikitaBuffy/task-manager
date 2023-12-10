@@ -1,9 +1,10 @@
-package ru.pominov.taskmanager.dto;
+package ru.pominov.taskmanager.dto.task;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.pominov.taskmanager.dto.user.UserDto;
 import ru.pominov.taskmanager.model.enums.TaskPriority;
 import ru.pominov.taskmanager.model.enums.TaskStatus;
 

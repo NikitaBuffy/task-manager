@@ -1,4 +1,4 @@
-package ru.pominov.taskmanager.service;
+package ru.pominov.taskmanager.service.user;
 
 import ru.pominov.taskmanager.model.User;
 

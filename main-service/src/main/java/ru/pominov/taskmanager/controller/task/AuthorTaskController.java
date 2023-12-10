@@ -1,4 +1,4 @@
-package ru.pominov.taskmanager.controller;
+package ru.pominov.taskmanager.controller.task;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -16,12 +16,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import ru.pominov.taskmanager.dto.NewTaskDto;
-import ru.pominov.taskmanager.dto.TaskDto;
-import ru.pominov.taskmanager.dto.UpdateTaskDto;
+import ru.pominov.taskmanager.dto.task.NewTaskDto;
+import ru.pominov.taskmanager.dto.task.TaskDto;
+import ru.pominov.taskmanager.dto.task.UpdateTaskDto;
 import ru.pominov.taskmanager.security.model.UserInfo;
 import ru.pominov.taskmanager.security.service.UserInfoService;
-import ru.pominov.taskmanager.service.TaskService;
+import ru.pominov.taskmanager.service.task.TaskService;
 
 import java.security.Principal;
 
@@ -35,7 +35,8 @@ public class AuthorTaskController {
 
     private final UserInfoService userInfoService;
 
-    @Operation(summary = "Создание новой задачи", description = "Доступ для аутентифицированного пользователя - ROLE_USER.",
+    @Operation(summary = "Создание новой задачи", description = "Доступ для аутентифицированного пользователя - ROLE_USER. " +
+            "Доступ только для автора.",
             security = {@SecurityRequirement(name = "BearerToken")})
     @ApiResponse(responseCode = "201", description = "Задача создана", content = @Content(mediaType = "application/json",
             schema = @Schema(implementation = TaskDto.class)))
@@ -46,8 +47,8 @@ public class AuthorTaskController {
         return ResponseEntity.status(201).body(taskService.addNewTask(newTaskDto, userInfo.getId()));
     }
 
-    @Operation(summary = "Редактирование задачи, изменение статуса и назначение исполнителя",
-            description = "Доступ для аутентифицированного пользователя - ROLE_USER. " +
+    @Operation(summary = "Редактирование своей задачи, изменение статуса и назначение исполнителя",
+            description = "Доступ для аутентифицированного пользователя - ROLE_USER. Доступ только для автора. " +
             "Редактировать можно название, описание и приоритет задачи. Можно изменить статус и назначить исполнителя",
             security = {@SecurityRequirement(name = "BearerToken")})
     @ApiResponse(responseCode = "200", description = "Данные задачи обновлены", content = @Content(mediaType = "application/json",
@@ -62,7 +63,8 @@ public class AuthorTaskController {
         return ResponseEntity.ok().body(taskService.editTask(taskId, updateTaskDto, userInfo.getId()));
     }
 
-    @Operation(summary = "Удаление своей задачи", description = "Доступ для аутентифицированного пользователя - ROLE_USER.",
+    @Operation(summary = "Удаление своей задачи", description = "Доступ для аутентифицированного пользователя - ROLE_USER. " +
+            "Доступ только для автора.",
             security = {@SecurityRequirement(name = "BearerToken")})
     @ApiResponse(responseCode = "204", description = "Задача удалена", content = @Content(mediaType = "application/json"))
     @DeleteMapping("/{taskId}")
@@ -76,7 +78,7 @@ public class AuthorTaskController {
     }
 
     @Operation(summary = "Просмотр своих задач", description = "Доступ для аутентифицированного пользователя - ROLE_USER. " +
-            "Обеспечивается фильтрация и пагинация вывода.",
+            "Доступ только для автора. Обеспечивается фильтрация и пагинация вывода.",
             security = {@SecurityRequirement(name = "BearerToken")})
     @ApiResponse(responseCode = "200", description = "Список своих задач", content = @Content(mediaType = "application/json",
             schema = @Schema(implementation = Page.class, subTypes = {TaskDto.class})))
@@ -95,7 +97,8 @@ public class AuthorTaskController {
         return ResponseEntity.ok().body(taskService.getAuthorTasks(userInfo.getId(), sort, from, size));
     }
 
-    @Operation(summary = "Просмотр конкретной задачи", description = "Доступ для аутентифицированного пользователя - ROLE_USER.",
+    @Operation(summary = "Просмотр своей конкретной задачи", description = "Доступ для аутентифицированного пользователя - ROLE_USER. " +
+            "Доступ только для автора.",
             security = {@SecurityRequirement(name = "BearerToken")})
     @ApiResponse(responseCode = "200", description = "Найденная задача", content = @Content(mediaType = "application/json",
             schema = @Schema(implementation = TaskDto.class)))

@@ -1,4 +1,4 @@
-package ru.pominov.taskmanager.service;
+package ru.pominov.taskmanager.service.user;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

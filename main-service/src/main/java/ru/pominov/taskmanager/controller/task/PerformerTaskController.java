@@ -1,4 +1,4 @@
-package ru.pominov.taskmanager.controller;
+package ru.pominov.taskmanager.controller.task;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -12,11 +12,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import ru.pominov.taskmanager.dto.TaskDto;
+import ru.pominov.taskmanager.dto.task.TaskDto;
 import ru.pominov.taskmanager.model.enums.TaskStatus;
 import ru.pominov.taskmanager.security.model.UserInfo;
 import ru.pominov.taskmanager.security.service.UserInfoService;
-import ru.pominov.taskmanager.service.TaskService;
+import ru.pominov.taskmanager.service.task.TaskService;
 
 import java.security.Principal;
 
