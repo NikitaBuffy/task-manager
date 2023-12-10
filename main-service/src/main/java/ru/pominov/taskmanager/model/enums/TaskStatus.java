@@ -2,5 +2,5 @@ package ru.pominov.taskmanager.model.enums;
 
 public enum TaskStatus {
 
-    WAITING, IN_PROCESS, DONE
+    WAITING, IN_PROGRESS, DONE
 }

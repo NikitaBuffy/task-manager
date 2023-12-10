@@ -15,10 +15,13 @@ import ru.pominov.taskmanager.exceptions.model.ApiError;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @RestControllerAdvice
 @Slf4j
 public class ExceptionsHandler {
+
+    public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     StringWriter sw = new StringWriter();
     PrintWriter pw = new PrintWriter(sw);
@@ -54,6 +57,19 @@ public class ExceptionsHandler {
     }
 
     @ExceptionHandler
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ApiError handleNotFound(final ConflictException conflictException) {
+        log.warn("409 {}", conflictException.getMessage());
+        conflictException.printStackTrace(pw);
+        return ApiError.builder()
+                .status(HttpStatus.CONFLICT)
+                .reason("Integrity constraint has been violated.")
+                .message(conflictException.getMessage())
+                .timestamp(LocalDateTime.now().toString())
+                .build();
+    }
+
+    @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiError handleNotFound(final BadRequestException badRequestException) {
         log.warn("400 {}", badRequestException.getMessage());
@@ -62,6 +78,32 @@ public class ExceptionsHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .reason("Incorrectly made request.")
                 .message(badRequestException.getMessage())
+                .timestamp(LocalDateTime.now().format(DATE_FORMAT))
+                .build();
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiError enumException(final IllegalArgumentException enumConstantException) {
+        log.warn("400 {}", enumConstantException.getMessage());
+        enumConstantException.printStackTrace(pw);
+        return ApiError.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .reason("Incorrectly made request.")
+                .message(enumConstantException.getMessage())
+                .timestamp(LocalDateTime.now().format(DATE_FORMAT))
+                .build();
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ApiError handleNotFound(final DataNotFoundException notFoundException) {
+        log.warn("404 {}", notFoundException.getMessage());
+        notFoundException.printStackTrace(pw);
+        return ApiError.builder()
+                .status(HttpStatus.NOT_FOUND)
+                .reason("The required object was not found.")
+                .message(notFoundException.getMessage())
                 .timestamp(LocalDateTime.now().toString())
                 .build();
     }
@@ -75,7 +117,7 @@ public class ExceptionsHandler {
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .reason("Integrity constraint has been violated.")
                 .message(throwable.getMessage())
-                .timestamp(LocalDateTime.now().toString())
+                .timestamp(LocalDateTime.now().format(DATE_FORMAT))
                 .build();
     }
 
@@ -86,7 +128,7 @@ public class ExceptionsHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .reason("Incorrectly made request.")
                 .message(e.getMessage())
-                .timestamp(LocalDateTime.now().toString())
+                .timestamp(LocalDateTime.now().format(DATE_FORMAT))
                 .build();
     }
 
@@ -97,7 +139,7 @@ public class ExceptionsHandler {
                 .status(HttpStatus.CONFLICT)
                 .reason("Integrity constraint has been violated.")
                 .message(e.getMessage())
-                .timestamp(LocalDateTime.now().toString())
+                .timestamp(LocalDateTime.now().format(DATE_FORMAT))
                 .build();
     }
 }

@@ -1,6 +1,7 @@
 package ru.pominov.taskmanager.security.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,7 @@ import ru.pominov.taskmanager.security.service.JwtService;
 import ru.pominov.taskmanager.security.service.UserInfoService;
 import ru.pominov.taskmanager.security.dto.UserInfoResponseDto;
 
+@Tag(name = "Регистрация/авторизация", description = "API для пользовательской регистрации, авторизации")
 @RestController
 @RequestMapping(path = "/auth")
 @RequiredArgsConstructor
