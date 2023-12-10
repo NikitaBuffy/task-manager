@@ -12,9 +12,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDto {
 
+    @Schema(description = "Идентификатор пользователя")
     private Long id;
 
+    @Schema(description = "Имя")
     private String firstName;
 
+    @Schema(description = "Фамилия")
     private String lastName;
 }
