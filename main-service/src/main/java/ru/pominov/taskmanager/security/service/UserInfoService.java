@@ -32,7 +32,7 @@ public class UserInfoService implements UserDetailsService {
         Optional<UserInfo> userDetail = userInfoRepository.findByEmail(email);
 
         return userDetail.map(UserInfoDetails::new)
-                .orElseThrow(() -> new UsernameNotFoundException("User with email=%s was not found" + email));
+                .orElseThrow(() -> new UsernameNotFoundException("User with email=" + email + " was not found"));
     }
 
     public UserInfo addUser(UserInfo userInfo) {
@@ -46,17 +46,17 @@ public class UserInfoService implements UserDetailsService {
 
     public UserInfo getUserInfo(String email) {
         return userInfoRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User with email=%s was not found" + email));
+                .orElseThrow(() -> new UsernameNotFoundException("User with email=" + email + " was not found"));
     }
 
     public Long getUserIdByEmail(String email) {
         UserInfo userDetail = userInfoRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User with email=%s was not found" + email));
+                .orElseThrow(() -> new UsernameNotFoundException("User with email=" + email + " was not found"));
         return userDetail.getId();
     }
 
     public UserInfo getUserInfoById(Long userId) {
         return userInfoRepository.findById(userId)
-                .orElseThrow(() -> new UsernameNotFoundException("User with id=%d was not found" + userId));
+                .orElseThrow(() -> new UsernameNotFoundException("User with id=" + userId + " was not found"));
     }
 }
