@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.3">
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/dto/comment/NewCommentDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/dto/comment/CommentDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/dto/user/UpdateUserDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/dto/user/UserDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/dto/task/TaskDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/dto/task/UpdateTaskDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/dto/task/NewTaskDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/abstraction/PageRequestUtil.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/repository/CommentRepository.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/repository/TaskRepository.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/repository/UserRepository.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/config/RequestLoggingConfig.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/dto/UserInfoResponseDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/dto/UserInfoRequestDto.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/dto/AuthResponse.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/dto/AuthRequest.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/repository/UserInfoRepository.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/config/SecurityConfig.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/config/UserInfoDetails.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/mapper/UserInfoMapper.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/controller/UserInfoController.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/model/UserInfo.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/filter/JwtAuthFilter.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/service/JwtService.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/security/service/UserInfoService.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/mapper/CommentMapper.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/mapper/TaskMapper.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/mapper/UserMapper.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/exceptions/ConflictException.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/exceptions/BadRequestException.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/exceptions/ExceptionsHandler.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/exceptions/DataNotFoundException.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/exceptions/model/ApiError.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/controller/comment/CommentController.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/controller/user/UserController.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/controller/task/AuthorTaskController.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/controller/task/PublicTaskController.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/controller/task/PerformerTaskController.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/TaskManagerApplication.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/model/enums/TaskStatus.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/model/enums/TaskSort.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/model/enums/TaskPriority.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/model/enums/CommentSort.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/model/User.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/model/Comment.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/model/Task.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/service/comment/CommentService.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/service/comment/CommentServiceImpl.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/service/user/UserService.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/service/user/UserServiceImpl.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/service/task/TaskService.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/java/ru/pominov/taskmanager/service/task/TaskServiceImpl.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/target/generated-sources/annotations/ru/pominov/taskmanager/security/mapper/UserInfoMapperImpl.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/target/generated-sources/annotations/ru/pominov/taskmanager/mapper/CommentMapperImpl.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/target/generated-sources/annotations/ru/pominov/taskmanager/mapper/TaskMapperImpl.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/target/generated-sources/annotations/ru/pominov/taskmanager/mapper/UserMapperImpl.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/java/ru/pominov/taskmanager/controller/CommentControllerTests.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/java/ru/pominov/taskmanager/controller/UserControllerTests.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/java/ru/pominov/taskmanager/controller/TaskControllerTests.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/java/ru/pominov/taskmanager/service/TaskServiceIntegrationTests.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/java/ru/pominov/taskmanager/service/UserServiceIntegrationTests.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/java/ru/pominov/taskmanager/service/CommentServiceIntegrationTests.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/java/ru/pominov/taskmanager/TaskManagerApplicationTests.java">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/main/resources/application.properties">
+</file>
+<file name="/Users/buffy/Desktop/task-manager/main-service/src/test/resources/application.properties">
+</file>
+</checkstyle>

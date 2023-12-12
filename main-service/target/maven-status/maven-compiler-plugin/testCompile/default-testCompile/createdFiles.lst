@@ -1,0 +1,7 @@
+ru/pominov/taskmanager/TaskManagerApplicationTests.class
+ru/pominov/taskmanager/controller/UserControllerTests.class
+ru/pominov/taskmanager/service/UserServiceIntegrationTests.class
+ru/pominov/taskmanager/service/TaskServiceIntegrationTests.class
+ru/pominov/taskmanager/controller/CommentControllerTests.class
+ru/pominov/taskmanager/controller/TaskControllerTests.class
+ru/pominov/taskmanager/service/CommentServiceIntegrationTests.class

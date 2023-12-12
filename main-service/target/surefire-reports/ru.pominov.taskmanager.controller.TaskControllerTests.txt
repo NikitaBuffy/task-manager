@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ru.pominov.taskmanager.controller.TaskControllerTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.327 s - in ru.pominov.taskmanager.controller.TaskControllerTests
