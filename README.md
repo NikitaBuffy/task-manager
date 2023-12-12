@@ -13,11 +13,13 @@
 Для развертывания приложения:
 
 - Склонируйте репозиторий на локальный компьютер
-- Соберите проект:
 
 ```bash
-  mvn clean package spring-boot:repackage
+  git clone git@github.com:NikitaBuffy/task-manager.git
 ```
+- Откройте в IDEA папку с проектом
+- Запустите приложение:
+
 ```bash
   docker compose up
 ```
